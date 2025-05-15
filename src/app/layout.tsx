@@ -1,10 +1,7 @@
 import React from 'react'
-import { ToastContainer } from 'react-toastify'
 
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-
-import { Providers } from '@/components/Providers'
 
 import '@/styles/globals.scss'
 import 'react-toastify/dist/ReactToastify.css'
@@ -23,10 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
-        <ToastContainer />
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
