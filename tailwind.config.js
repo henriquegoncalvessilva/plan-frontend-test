@@ -3,10 +3,6 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'page-gradient':
-          'linear-gradient(224.9deg, #f5821f 0%, #ffd565 50.2%, #f5821f 100%)',
-      },
       colors: {
         primary: '#F58220',
         'card-header-bg': '#58595B',
@@ -20,12 +16,12 @@ module.exports = {
         warning: '#FBBD23',
         error: '#F87272',
       },
-      // backgroundImage: {
-      //   'page-gradient':
-      //     'linear-gradient(224.9deg, #f5821f 0%, #ffd565 50.2%, #f5821f 100%)',
-      //   'header-gradient':
-      //     'linear-gradient(180deg, #f58220 0%, rgba(245, 130, 32, 0) 100%)',
-      // },
+      backgroundImage: {
+        'page-gradient':
+          'linear-gradient(224.9deg, #f5821f 0%, #ffd565 50.2%, #f5821f 100%)',
+        'header-gradient':
+          'linear-gradient(180deg, #f58220 0%, rgba(245, 130, 32, 0) 100%)',
+      },
       fontSize: {
         sm: '0.9375rem',
         md: '1.125rem',
