@@ -1,32 +1,37 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'page-gradient':
+          'linear-gradient(224.9deg, #f5821f 0%, #ffd565 50.2%, #f5821f 100%)',
+      },
+      colors: {
+        primary: '#F58220',
+        'card-header-bg': '#58595B',
+        'card-text-color': '#707070',
+        'card-icon-color': '#9D9D9D',
+        accent: '#3B82F6',
+        neutral: '#374151',
+        'base-100': '#FFFFFF',
+        info: '#3ABFF8',
+        success: '#36D399',
+        warning: '#FBBD23',
+        error: '#F87272',
+      },
+      // backgroundImage: {
+      //   'page-gradient':
+      //     'linear-gradient(224.9deg, #f5821f 0%, #ffd565 50.2%, #f5821f 100%)',
+      //   'header-gradient':
+      //     'linear-gradient(180deg, #f58220 0%, rgba(245, 130, 32, 0) 100%)',
+      // },
+      fontSize: {
+        sm: '0.9375rem',
+        md: '1.125rem',
+        xl: '1.4375rem',
       },
     },
-    colors: {
-      'blue_light': '#00AFEF',
-      'blue_intermediate': '#1D5A82',
-      'blue_dark': '#262642',
-      'pink_light': '#EC268F',
-      'red_light': '#E02023',
-    },
-    fontSize: {
-      xs: '0.8125rem',
-      sm: '0.9375rem',
-      df: '1rem',
-      lg: '1.25rem',
-      xl: '2rem',
-    }
   },
   plugins: [],
 }
