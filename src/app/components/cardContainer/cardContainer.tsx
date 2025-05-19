@@ -1,12 +1,13 @@
 import React from 'react'
 
-import getData from '@/services/api'
-
 import CardCountryClient from '../pagination/paginate'
 
-const CardContainer = async () => {
-  const data = await getData()
-  return <CardCountryClient data={data} />
+const CardContainer = () => {
+  return (
+    <>
+      <CardCountryClient />
+    </>
+  )
 }
 
-export default CardContainer
+export default React.memo(CardContainer)
