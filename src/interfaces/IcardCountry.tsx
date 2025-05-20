@@ -41,9 +41,8 @@ export interface Country {
   altSpellings: string[]
   region: string
   subregion: string
-  languages: {
-    [key: string]: string
-  }
+  languages: [key: string]
+
   latlng: [number, number]
   landlocked: boolean
   borders: string[]
@@ -56,7 +55,7 @@ export interface Country {
   }
   cca3: string
   translations: {
-    por: {
+    [key: string]: {
       official: string
       common: string
     }

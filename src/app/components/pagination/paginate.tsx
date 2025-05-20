@@ -15,7 +15,6 @@ export default function CardCountryClient() {
   const fetchCountries = useCountryStore((state) => state.fetchCountries)
   const pageChange = useCountryStore((state) => state.pageChange)
   const page = useCountryStore((state) => state.page)
-
   const countries = useCountryStore((state) => state.filteredCountries)
 
   useEffect(() => {

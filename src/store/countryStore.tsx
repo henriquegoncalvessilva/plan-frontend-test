@@ -13,7 +13,22 @@ export const useCountryStore = create<CountryState>((set, get) => ({
   continentFilter: '',
   page: 1,
   filterCountry: '',
+  filterLanguage: '',
 
+  setFilterLanguage: (value: string) => {
+    const { countries } = get()
+    const filtered =
+      value === ''
+        ? countries
+        : countries.filter((country) => {
+            if (!country.languages) return false
+            return Object.values(country.languages).includes(value)
+          })
+
+    console.log(filtered)
+
+    set({ filterLanguage: value, filteredCountries: filtered, page: 1 })
+  },
   setFilterCountry: (value: string) => {
     const { countries } = get()
 
