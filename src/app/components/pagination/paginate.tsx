@@ -28,7 +28,7 @@ export default function CardCountryClient() {
 
   return (
     <>
-      <section className="flex flex-wrap gap-5 w-full rounded-[20px] justify-center">
+      <section className="flex flex-wrap gap-5 w-full rounded-[20px] justify-center desktop:justify-between ">
         <React.Suspense
           fallback={
             <p className="col-span-full text-center text-white text-2xl">
@@ -41,7 +41,7 @@ export default function CardCountryClient() {
         </React.Suspense>
       </section>
       <div className="col-span-full">
-        <div className="flex justify-center items-center mt-6 gap-4">
+        <div className="flex justify-center items-center mt-6 desktop:mt-0 gap-4">
           <button
             onClick={() => pageChange(Math.max(page - 1, 1))}
             className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-white bg-transparent disabled:opacity-50"
