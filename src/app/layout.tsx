@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body className={exo.className}>{children}</body>
+    <html lang="pt-BR" className={exo.className}>
+      <body>{children}</body>
     </html>
   )
 }

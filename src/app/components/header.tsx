@@ -219,7 +219,13 @@ export const Header = () => {
   return (
     <>
       <header className="tablet:w-full mb-4  mt-9 h-fit flex flex-row items-center justify-center gap-4 flex-wrap">
-        <Image src="/img/logo.svg" width={108} height={59} alt="Logo" />
+        <Image
+          priority
+          src="/img/logo.svg"
+          width={108}
+          height={59}
+          alt="Logo"
+        />
 
         <section className="tablet:w-fit space-y-5 flex flex-col items-center tablet:m-auto">
           <div className="flex-wrap tablet:w-fit flex gap-5 items-center justify-center ">
