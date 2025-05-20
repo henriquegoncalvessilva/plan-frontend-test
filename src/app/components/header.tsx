@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react'
 
-import { SearchIcon } from 'lucide-react'
+import { ChevronDown, ChevronDownIcon, SearchIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { useCountryStore } from '@/store/countryStore'
@@ -218,7 +218,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="tablet:w-full  mt-9 h-fit flex flex-row items-center justify-center gap-4 flex-wrap">
+      <header className="tablet:w-full mb-4  mt-9 h-fit flex flex-row items-center justify-center gap-4 flex-wrap">
         <Image src="/img/logo.svg" width={108} height={59} alt="Logo" />
 
         <section className="tablet:w-fit space-y-5 flex flex-col items-center tablet:m-auto">
@@ -228,18 +228,18 @@ export const Header = () => {
                 ref={inputRef}
                 type="text"
                 placeholder="Digite aqui"
-                className="pr-10 relative  desktop:w-[420px] h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
+                className="pr-10 relative  w-[272px] font-semibold  desktop:w-[420px] h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
               />
               <SearchIcon
                 className="absolute right-0 mr-4 text-white cursor-pointer"
                 onClick={() => handleFilterCountry()}
               />
             </div>
-            <div className="flex items-center justify-center relative">
+            <div className="flex items-center justify-center relative w-fit">
               <select
                 name="language"
                 id="language"
-                className="pr-10  w-[272px] relative h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
+                className="pr-10 font-semibold  w-[272px] relative h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
                 onChange={(e) => handleSelecteFilterCountry(e.target.value)}>
                 <option value="" disabled defaultChecked>
                   Selecione um idioma
@@ -251,10 +251,11 @@ export const Header = () => {
                   </option>
                 ))}
               </select>
+              <ChevronDownIcon className="absolute text-white right-2" />
             </div>
           </div>
 
-          <div className="flex flex-wrap w-[280px] items-center justify-center tablet:flex-nowrap tablet:w-full tablet:justify-center gap-0 space-x-4">
+          <div className="flex flex-wrap w-[280px] items-center justify-center tablet:flex-nowrap tablet:w-full tablet:justify-center gap-0 space-x-4 desktop:w-full desktop:justify-start ">
             <div className="flex flex-col gap-4 flex-1 tablet:flex-initial tablet:flex-row">
               <label
                 htmlFor="Africa"
@@ -305,7 +306,7 @@ export const Header = () => {
                 Oceania
               </label>
             </div>
-            <div className="flex flex-col gap-4 flex-1 tablet:flex-initial tablet:flex-row">
+            <div className="flex flex-col gap-4 flex-1 tablet:flex-initial tablet:flex-row  ">
               <label
                 htmlFor="Americas"
                 className="flex items-center gap-2 cursor-pointer">

@@ -28,10 +28,13 @@ const CardCountry = React.memo(({ country }: CardCountryProps) => {
           src={country.flags.svg}
           alt="Icone da capital do país"
         />
-        <p>{country.translations.por.common}</p>
-        <div className="flex gap-3">
-          <p>{country.capital}</p>
-        </div>
+        <p className="text-xl font-semibold leading-none">
+          {country.translations.por.common.length > 20
+            ? country.translations.por.common.slice(0, 20) + '...'
+            : country.translations.por.common}
+        </p>
+
+        <span className="text-md font-semibold">{country.capital}</span>
       </div>
       <div className="text-center">
         <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
