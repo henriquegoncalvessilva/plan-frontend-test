@@ -1,12 +1,12 @@
 import React from 'react'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Exo } from 'next/font/google'
 
 import '@/styles/globals.scss'
 import 'react-toastify/dist/ReactToastify.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const exo = Exo({ subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Plan',
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-BR">
+      <body className={exo.className}>{children}</body>
     </html>
   )
 }
