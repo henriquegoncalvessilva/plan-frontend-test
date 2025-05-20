@@ -15,7 +15,7 @@ module.exports = {
         'card-header-bg': '#58595B',
         'card-text-color': '#707070',
         'card-icon-color': '#9D9D9D',
-        accent: '#3B82F6',
+        accent: '#F58220',
         neutral: '#374151',
         'base-100': '#FFFFFF',
         info: '#3ABFF8',
@@ -24,6 +24,7 @@ module.exports = {
         error: '#F87272',
       },
       backgroundImage: {
+        'page-bg': '#f5821f',
         'page-gradient':
           'linear-gradient(224.9deg, #f5821f 0%, #ffd565 50.2%, #f5821f 100%)',
         'header-gradient':

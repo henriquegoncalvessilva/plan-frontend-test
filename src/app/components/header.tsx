@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react'
 
+import { SearchIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { useCountryStore } from '@/store/countryStore'
@@ -217,112 +218,131 @@ export const Header = () => {
 
   return (
     <>
-      <header className="w-full h-24 px-16 py-9">
-        <select
-          name="language"
-          id="language"
-          onChange={(e) => handleSelecteFilterCountry(e.target.value)}>
-          <option value="">Selecionar todos</option>
-          {languageOptions.map((language) => (
-            <option key={language} value={language}>
-              {language} ({language})
-            </option>
-          ))}
-        </select>
-        <input ref={inputRef} type="text" placeholder="Digite aqui" />
-        <button
-          className="ml-2 px-4 py-2 bg-black text-white rounded"
-          onClick={() => handleFilterCountry()}>
-          Filtrar
-        </button>
-        <div className="flex">
-          <Image src="/img/logo.svg" width={70} height={52} alt="Logo" />
+      <header className="w-screen  mt-4 mb-4 h-fit flex flex-row items-center justify-center gap-4 flex-wrap">
+        <Image src="/img/logo.svg" width={108} height={59} alt="Logo" />
 
-          <label
-            htmlFor="Africa"
-            className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              id="Africa"
-              name="Africa"
-              value="Africa"
-              checked={filter === 'Africa'}
-              onChange={(e) => handleFilter(e.target.checked, e.target.value)}
-              className="accent-black"
-            />
-            África
-          </label>
-          <label
-            htmlFor="Americas"
-            className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              id="Americas"
-              name="Americas"
-              value="Americas"
-              checked={filter === 'Americas'}
-              onChange={(e) => handleFilter(e.target.checked, e.target.value)}
-              className="accent-black"
-            />
-            Américas
-          </label>
-          <label
-            htmlFor="Europe"
-            className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              id="Europe"
-              name="Europe"
-              value="Europe"
-              checked={filter === 'Europe'}
-              onChange={(e) => handleFilter(e.target.checked, e.target.value)}
-              className="accent-black"
-            />
-            Europa
-          </label>
-          <label
-            htmlFor="Asia"
-            className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              id="Asia"
-              name="Asia"
-              value="Asia"
-              checked={filter === 'Asia'}
-              onChange={(e) => handleFilter(e.target.checked, e.target.value)}
-              className="accent-black"
-            />
-            Ásia
-          </label>
-          <label
-            htmlFor="Oceania"
-            className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              id="Oceania"
-              name="Oceania"
-              value="Oceania"
-              checked={filter === 'Oceania'}
-              onChange={(e) => handleFilter(e.target.checked, e.target.value)}
-              className="accent-black"
-            />
-            Oceania
-          </label>
-          <label
-            htmlFor="Antarctica"
-            className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              id="Antarctica"
-              name="Antarctica"
-              value="Antarctica"
-              checked={filter === 'Antarctica'}
-              onChange={(e) => handleFilter(e.target.checked, e.target.value)}
-              className="accent-black"
-            />
-            Antártida
-          </label>
-        </div>
+        <section className="w-full space-y-5">
+          <div className="flex-wrap w-screen flex gap-5 items-center justify-center ">
+            <div className="flex items-center justify-center relative w-fit">
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Digite aqui"
+                className="pr-10 relative  desktop:w-[420px] h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
+              />
+              <SearchIcon
+                className="absolute right-0 mr-4 text-white cursor-pointer"
+                onClick={() => handleFilterCountry()}
+              />
+            </div>
+            <div className="flex items-center justify-center relative">
+              <select
+                name="language"
+                id="language"
+                className="pr-10  w-[272px] relative h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
+                onChange={(e) => handleSelecteFilterCountry(e.target.value)}>
+                <option value="" disabled defaultChecked>
+                  Selecione um idioma
+                </option>
+                <option value="">Todos</option>
+                {languageOptions.map((language) => (
+                  <option key={language} value={language} title={language}>
+                    {language}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap w-full items-center justify-center gap-2 ">
+            <label
+              htmlFor="Africa"
+              className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="Africa"
+                name="Africa"
+                value="Africa"
+                checked={filter === 'Africa'}
+                onChange={(e) => handleFilter(e.target.checked, e.target.value)}
+                className="
+custom-checkbox
+"
+              />
+              África
+            </label>
+            <label
+              htmlFor="Americas"
+              className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="Americas"
+                name="Americas"
+                value="Americas"
+                checked={filter === 'Americas'}
+                onChange={(e) => handleFilter(e.target.checked, e.target.value)}
+                className="accent-black"
+              />
+              Américas
+            </label>
+            <label
+              htmlFor="Europe"
+              className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="Europe"
+                name="Europe"
+                value="Europe"
+                checked={filter === 'Europe'}
+                onChange={(e) => handleFilter(e.target.checked, e.target.value)}
+                className="accent-black"
+              />
+              Europa
+            </label>
+            <label
+              htmlFor="Asia"
+              className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="Asia"
+                name="Asia"
+                value="Asia"
+                checked={filter === 'Asia'}
+                onChange={(e) => handleFilter(e.target.checked, e.target.value)}
+                className="accent-black"
+              />
+              Ásia
+            </label>
+            <label
+              htmlFor="Oceania"
+              className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="Oceania"
+                name="Oceania"
+                value="Oceania"
+                checked={filter === 'Oceania'}
+                onChange={(e) => handleFilter(e.target.checked, e.target.value)}
+                className="accent-black"
+              />
+              Oceania
+            </label>
+            <label
+              htmlFor="Antarctica"
+              className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="Antarctica"
+                name="Antarctica"
+                value="Antarctica"
+                checked={filter === 'Antarctica'}
+                onChange={(e) => handleFilter(e.target.checked, e.target.value)}
+                className="accent-black"
+              />
+              Antártida
+            </label>
+          </div>
+        </section>
       </header>
     </>
   )
