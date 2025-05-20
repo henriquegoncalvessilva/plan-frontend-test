@@ -11,7 +11,7 @@ type CardCountryProps = {
 
 const CardCountry = React.memo(({ country }: CardCountryProps) => {
   return (
-    <div className="flex flex-col justify-start space-y-5 rounded-[20px] desktop:w-[310px] h-[14.875rem] bg-white">
+    <div className="flex flex-col justify-start space-y-5 rounded-[20px] w-[310px] h-[14.875rem] bg-white">
       <div className="bg-card-header-bg w-full h-12 text-white flex items-center justify-between p-5 rounded-t-[1.25rem]">
         <p>{country.continents[0]}</p>
         <Image
