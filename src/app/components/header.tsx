@@ -218,7 +218,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="tablet:w-full mb-4  mt-9 h-fit flex flex-row items-center justify-center gap-4 flex-wrap">
+      <header className="max-w-[90rem] tablet:w-full my-9 mx-auto h-fit flex flex-row items-center justify-center gap-4 flex-wrap">
         <Image
           priority
           src="/img/logo.svg"

@@ -5,6 +5,8 @@ import { Exo } from 'next/font/google'
 
 import '@/styles/globals.scss'
 import 'react-toastify/dist/ReactToastify.css'
+import Footer from './components/footer/footer'
+import { Header } from './components/header'
 
 const exo = Exo({ subsets: ['latin'], display: 'swap' })
 
@@ -20,7 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={exo.className}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children} <Footer />
+      </body>
     </html>
   )
 }

@@ -1,16 +1,12 @@
 import React from 'react'
 
 import CardContainer from './components/cardContainer/cardContainer'
-import Footer from './components/footer/footer'
-import { Header } from './components/header'
 
 export default function Home() {
   return (
     <>
-      <main className="min-h-screen max-w-[90rem] flex flex-col justify-between items-center m-auto px-6">
-        <Header />
+      <main className="max-w-[90rem] flex flex-col justify-start items-center m-auto px-6 tablet:px-0">
         <CardContainer />
-        <Footer />
       </main>
     </>
   )
