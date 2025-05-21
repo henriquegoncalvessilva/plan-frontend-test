@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 import { Country } from '@/interfaces/IcardCountry'
-import getData from '@/services/api'
+import { getData } from '@/services/api'
 
 import { CountryState } from './Istore'
 
