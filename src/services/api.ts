@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-async function getData() {
+export async function getData() {
   try {
     const response = await axios.get('https://restcountries.com/v3.1/all', {})
 
@@ -10,5 +10,13 @@ async function getData() {
     throw new Error('Erro ao buscar dados')
   }
 }
+export async function getCountryByName(name: string) {
+  const res = await fetch(`https://restcountries.com/v3.1/name/${name}`)
 
-export default getData
+  if (!res.ok) {
+    throw new Error('Erro ao buscar país')
+  }
+
+  const data = await res.json()
+  return data[0]
+}
