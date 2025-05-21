@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 
 import { Country } from '@/interfaces/IcardCountry'
+import Link from 'next/link'
 
 type CardCountryProps = {
   country: Country
@@ -59,7 +60,7 @@ const CardCountryItem = React.memo(({ country }: CardCountryProps) => {
         }}>
         <div className="text-center z-50">
           <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
-            Ver mais
+            <Link href={`/details/${country.name.common}`}>Reservar</Link>
           </button>
         </div>
       </div>
