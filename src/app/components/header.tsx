@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react'
 
-import { ChevronDown, ChevronDownIcon, SearchIcon } from 'lucide-react'
+import { ChevronDownIcon, SearchIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { useCountryStore } from '@/store/countryStore'

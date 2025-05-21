@@ -9,7 +9,7 @@ export const useCountryStore = create<CountryState>((set, get) => ({
   countries: [] as Country[],
   filteredCountries: [],
   filterContinent: '',
-  isLoading: false,
+  isLoading: true,
   continentFilter: '',
   page: 1,
   filterCountry: '',
