@@ -5,8 +5,8 @@ module.exports = {
     screens: {
       mobile: '30rem',
       tablet: '40rem',
-      laptop: { min: '64rem', max: '100rem' },
-      desktop: { min: '120rem' },
+      laptop: { min: '1024px', max: '1600px' },
+      desktop: '1920px',
     },
     extend: {
       colors: {
