@@ -1,47 +1,19 @@
-'use client'
-
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { useCountryStore } from '@/store/countryStore'
 
-const CardCountry = React.lazy(() => import('../cardCountry/cardCountry'))
-
-function paginate<T>(data: T[], page: number, perPage: number): T[] {
-  const start = (page - 1) * perPage
-  return data.slice(start, start + perPage)
+type CardPaginationProps = {
+  totalPages: number
 }
 
-export default function CardCountryClient() {
-  const fetchCountries = useCountryStore((state) => state.fetchCountries)
-  const pageChange = useCountryStore((state) => state.pageChange)
+const CardPagination = ({ totalPages }: CardPaginationProps) => {
   const page = useCountryStore((state) => state.page)
-  const countries = useCountryStore((state) => state.filteredCountries)
-
-  useEffect(() => {
-    fetchCountries()
-  }, [fetchCountries])
-
-  const perPage = 8
-
-  const totalPages = Math.ceil(countries.length / perPage)
-  const currentPageCountries = paginate(countries, page, perPage)
+  const pageChange = useCountryStore((state) => state.pageChange)
 
   return (
     <>
-      <section className="flex flex-wrap gap-5 w-full rounded-[20px] justify-center tablet:justify-between min-h-[600px] tablet:px-5 ">
-        <React.Suspense
-          fallback={
-            <p className="col-span-full text-center text-white text-2xl">
-              Carregando...
-            </p>
-          }>
-          {currentPageCountries.map((country, index) => (
-            <CardCountry key={index} country={country} />
-          ))}
-        </React.Suspense>
-      </section>
-      <div className="col-span-full">
-        <div className="flex justify-center items-center mt-6 desktop:mt-0 gap-4">
+      <div className="col-span-full laptop:mt-8">
+        <div className="flex justify-center items-center mt-6  mb-6 gap-4">
           <button
             onClick={() => pageChange(Math.max(page - 1, 1))}
             className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-white bg-transparent disabled:opacity-50"
@@ -88,3 +60,5 @@ export default function CardCountryClient() {
     </>
   )
 }
+
+export default CardPagination

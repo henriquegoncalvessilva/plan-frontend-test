@@ -9,7 +9,7 @@ type CardCountryProps = {
   country: Country
 }
 
-const CardCountry = React.memo(({ country }: CardCountryProps) => {
+const CardCountryItem = React.memo(({ country }: CardCountryProps) => {
   return (
     <div className="flex flex-col justify-start space-y-5 rounded-[20px] w-[310px] h-[14.875rem] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
       <div className="bg-card-header-bg w-full h-12 text-white flex items-center justify-between p-5 rounded-t-[1.25rem]">
@@ -67,4 +67,4 @@ const CardCountry = React.memo(({ country }: CardCountryProps) => {
   )
 })
 
-export default React.memo(CardCountry)
+export default React.memo(CardCountryItem)
