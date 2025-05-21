@@ -33,6 +33,7 @@ module.exports = {
         sm: '0.9375rem',
         md: '1.125rem',
         xl: '1.4375rem',
+        xx2l: '3.125rem',
       },
     },
   },
