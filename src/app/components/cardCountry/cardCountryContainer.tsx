@@ -29,7 +29,7 @@ export default function CardCountryContainer() {
 
   return (
     <>
-      <section className="flex flex-wrap gap-5 w-full rounded-[20px] desktop:justify-center tablet:justify-between min-h-full tablet:px-5 flex-1 items-center ">
+      <section className="flex flex-wrap gap-5 w-full rounded-[20px] desktop:justify-center tablet: justify-content: center; min-h-full tablet:justify-center tablet:px-5 flex-1 items-center justify-center">
         <React.Suspense fallback={null}>
           {isLoading ? (
             <p className="col-span-full text-center text-white text-2xl">
