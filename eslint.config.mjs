@@ -23,7 +23,7 @@ export default defineConfig([
       'plugin:react/recommended',
       'plugin:@typescript-eslint/eslint-recommended',
       'plugin:@typescript-eslint/recommended',
-      'prettier',
+      'plugin:prettier/recommended',
       'eslint:recommended',
     ),
 
@@ -31,6 +31,7 @@ export default defineConfig([
       '@typescript-eslint': typescriptEslint,
       react,
       'import-helpers': importHelpers,
+      prettier,
     },
 
     languageOptions: {
@@ -40,6 +41,8 @@ export default defineConfig([
     },
 
     rules: {
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'prettier/prettier': 'error',
       indent: [
         'error',
         2,

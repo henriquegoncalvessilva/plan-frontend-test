@@ -1,8 +1,10 @@
 {
   "editor.formatOnSave": true,
   "eslint.format.enable": true,
+
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always"
   },
   "eslint.validate": ["javascript", "typescript"],
   "eslint.nodePath": "./node_modules/eslint",
