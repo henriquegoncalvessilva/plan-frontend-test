@@ -3,11 +3,10 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     screens: {
-      mobile: '480px',
-      tablet: '640px',
-      laptop: { min: '1024px', max: '1365px' },
-      desktop: '1280px',
-      '2xl': '1536px',
+      mobile: '30rem',
+      tablet: '40rem',
+      laptop: { min: '64rem', max: '100rem' },
+      desktop: { min: '120rem' },
     },
     extend: {
       colors: {
