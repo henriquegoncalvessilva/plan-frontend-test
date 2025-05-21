@@ -28,7 +28,7 @@ export default function CardCountryClient() {
 
   return (
     <>
-      <section className="flex flex-wrap gap-5 w-full rounded-[20px] justify-center desktop:justify-between min-h-[600px] ">
+      <section className="flex flex-wrap gap-5 w-full rounded-[20px] justify-center tablet:justify-between min-h-[600px] tablet:px-5 ">
         <React.Suspense
           fallback={
             <p className="col-span-full text-center text-white text-2xl">
