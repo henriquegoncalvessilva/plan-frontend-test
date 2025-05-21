@@ -6,11 +6,11 @@ import Image from 'next/image'
 
 import { useCountryStore } from '@/store/countryStore'
 import { usePathname } from 'next/navigation'
+import ContinentsFilter from './header/filters/continentsFilter'
 
 export const Header = () => {
   const [filter, setFilter] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
-  const continentFilter = useCountryStore((state) => state.setFilterContinent)
   const countryFilter = useCountryStore((state) => state.setFilterCountry)
   const languageFilter = useCountryStore((state) => state.setFilterLanguage)
   const pathname = usePathname()
@@ -197,17 +197,6 @@ export const Header = () => {
     'Zulu',
   ]
 
-  const handleFilter = (checked: boolean, value: string) => {
-    if (checked) {
-      continentFilter(value)
-      setFilter(value)
-      if (inputRef.current) inputRef.current.value = ''
-    } else {
-      continentFilter('')
-      setFilter('')
-    }
-  }
-
   const handleFilterCountry = () => {
     if (!inputRef.current) return
     countryFilter(inputRef.current?.value)
@@ -216,7 +205,8 @@ export const Header = () => {
 
   const handleSelecteFilterCountry = (value: string) => {
     languageFilter(value)
-    console.log(value)
+    setFilter('')
+    if (inputRef.current) inputRef.current.value = ''
   }
 
   return (
@@ -268,106 +258,11 @@ export const Header = () => {
             </div>
 
             <div className="flex flex-wrap w-[280px] items-center justify-center tablet:flex-nowrap tablet:w-full tablet:justify-center gap-0 space-x-4 desktop:w-full  ">
-              <div className="flex flex-col gap-4 flex-1 tablet:flex-initial tablet:flex-row">
-                <label
-                  htmlFor="Africa"
-                  className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    id="Africa"
-                    name="Africa"
-                    value="Africa"
-                    checked={filter === 'Africa'}
-                    onChange={(e) =>
-                      handleFilter(e.target.checked, e.target.value)
-                    }
-                    className="accent-black"
-                  />
-                  África
-                </label>
-                <label
-                  htmlFor="Europe"
-                  className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    id="Europe"
-                    name="Europe"
-                    value="Europe"
-                    checked={filter === 'Europe'}
-                    onChange={(e) =>
-                      handleFilter(e.target.checked, e.target.value)
-                    }
-                    className="accent-black"
-                  />
-                  Europa
-                </label>
-                <label
-                  htmlFor="Oceania"
-                  className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    id="Oceania"
-                    name="Oceania"
-                    value="Oceania"
-                    checked={filter === 'Oceania'}
-                    onChange={(e) =>
-                      handleFilter(e.target.checked, e.target.value)
-                    }
-                    className="accent-black"
-                  />
-                  Oceania
-                </label>
-              </div>
-              <div className="flex flex-col gap-4 flex-1 tablet:flex-initial tablet:flex-row desktop:justify-center  ">
-                <label
-                  htmlFor="Americas"
-                  className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    id="Americas"
-                    name="Americas"
-                    value="Americas"
-                    checked={filter === 'Americas'}
-                    onChange={(e) =>
-                      handleFilter(e.target.checked, e.target.value)
-                    }
-                    className="accent-black"
-                  />
-                  Américas
-                </label>
-                <label
-                  htmlFor="Asia"
-                  className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    id="Asia"
-                    name="Asia"
-                    value="Asia"
-                    checked={filter === 'Asia'}
-                    onChange={(e) =>
-                      handleFilter(e.target.checked, e.target.value)
-                    }
-                    className="accent-black"
-                  />
-                  Ásia
-                </label>
-                <label
-                  htmlFor="Antarctica"
-                  className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    id="Antarctica"
-                    name="Antarctica"
-                    value="Antarctica"
-                    checked={filter === 'Antarctica'}
-                    onChange={(e) =>
-                      handleFilter(e.target.checked, e.target.value)
-                    }
-                    className="accent-black"
-                  />
-                  Antártida
-                </label>
-              </div>
+              <ContinentsFilter
+                filter={filter}
+                setFilter={setFilter}
+                inputRef={inputRef.current}
+              />
             </div>
           </section>
         ) : (
