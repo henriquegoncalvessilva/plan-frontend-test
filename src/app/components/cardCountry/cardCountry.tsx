@@ -41,7 +41,14 @@ const CardCountry = React.memo(({ country }: CardCountryProps) => {
             : country.translations.por.common}
         </p>
 
-        <span className="text-md font-semibold">{country.capital}</span>
+        <div className="text-md font-semibold flex gap-2 items-center">
+          <Image
+            width={20}
+            height={20}
+            src={'/img/capital_icon.svg'}
+            alt="Icone generico de capital"></Image>
+          {country.capital}
+        </div>
       </div>
       <div className="text-center">
         <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
