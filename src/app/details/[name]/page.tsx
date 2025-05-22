@@ -1,4 +1,3 @@
-// app/details/[name]/page.tsx
 import { getCountryByName } from '@/services/api'
 import { Country } from '@/interfaces/IcardCountry'
 import Image from 'next/image'
@@ -11,13 +10,13 @@ type Props = {
 }
 
 export default async function Details({ params }: Props) {
-  const decodedName = decodeURIComponent(params.name)
+  const { name } = await params
+  const decodedName = decodeURIComponent(name)
   const country: Country = await getCountryByName(decodedName)
   const itensDetail = [
     {
       label: null,
       value: country.translations.por.common,
-      className: 'text-xx2l font-semibold leading-none',
     },
     {
       label: 'Nome oficial:',
@@ -58,57 +57,63 @@ export default async function Details({ params }: Props) {
   ]
   return (
     <>
-      <div className="flex flex-col justify-start space-y-5 rounded-[20px] w-[80rem] h-[35.375rem] bg-white shadow-[0_4px_10px_rgba(0,0,0,0.2)] m-auto">
-        <div className="bg-card-header-bg w-full h-12 text-white flex items-center justify-between p-5 rounded-t-[1.25rem]">
-          <p>{country.continents[0]}</p>
-          <div className="w-7 h-7 relative">
-            <Image
-              fill
-              style={{ objectFit: 'contain' }}
-              src={`/img/${country.region}.svg`}
-              alt=""
-            />
+      <section className="px-4 relative tablet:mb-[10.5rem] laptop:mb-[8.75rem]">
+        <div className="flex flex-col desktop:flex-col justify-start space-y-5 rounded-[1.25rem] max-w-[80rem] h-full bg-white shadow-[0_0.25rem_0.625rem_rgba(0,0,0,0.2)] m-auto">
+          <div className="bg-card-header-bg w-full h-12 text-white flex items-center justify-between p-5 rounded-t-[1.25rem]">
+            <p>{country.continents[0]}</p>
+            <div className="w-7 h-7 relative">
+              <Image
+                fill
+                style={{ objectFit: 'contain' }}
+                src={`/img/${country.region}.svg`}
+                alt=""
+              />
+            </div>
           </div>
-        </div>
-        <div className="flex px-5 justify-center h-full m-auto w-full">
-          <div className="relative w-[18.125rem] h-[13.75rem] shrink-0">
-            <Image
-              fill
-              className="object-contain"
-              src={country.flags.svg}
-              alt={
-                country.flags.alt ||
-                `Bandeira do país ${country.translations.por.common}`
-              }
-            />
-          </div>
-          <div className="text-card-text-color p-5 w-full h-full flex flex-col justify-center items-center gap-5 flex-grow-0">
-            {itensDetail.map((item, index) => (
-              <p
-                key={index}
-                className={
-                  item.className || 'text-xl font-semibold leading-none'
-                }>
-                {item.label && (
-                  <span className="font-normal mr-2">{item.label}</span>
-                )}
-                {item.value}
-              </p>
-            ))}
-            <div
-              className="h-full rounded-[20px]"
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%)',
-              }}></div>
-            <div className="text-center z-50">
-              <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
-                <Link href={`/`}>Voltar</Link>
-              </button>
+          <div className="flex flex-col laptop:flex-row items-center laptop:items-start px-5 justify-center h-full m-auto w-full">
+            <div className="relative w-[18.125rem] h-[13.75rem] shrink-0">
+              <Image
+                fill
+                className="object-contain"
+                src={country.flags.svg}
+                alt={
+                  country.flags.alt ||
+                  `Bandeira do país ${country.translations.por.common}`
+                }
+              />
+            </div>
+            <div className="text-card-text-color p-5 w-full h-full flex flex-col justify-center items-center gap-5 flex-grow-0">
+              {itensDetail.map((item, index) =>
+                item.label === null ? (
+                  <h1 key={index} className="text-xx2l font-semibold">
+                    <span>{item.value}</span>
+                  </h1>
+                ) : (
+                  <div className="w-full laptop:w-fit" key={index}>
+                    <span className="text-xl mr-2 font-semibold">
+                      {item.label}
+                    </span>
+                    <span className="text-xl">{item.value}</span>
+                  </div>
+                ),
+              )}
+              <div
+                className="h-full rounded-[1.25rem]"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%)',
+                }}></div>
+              <div className="text-center z-50 w-full">
+                <Link href={`/`}>
+                  <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
+                    Voltar
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 }
