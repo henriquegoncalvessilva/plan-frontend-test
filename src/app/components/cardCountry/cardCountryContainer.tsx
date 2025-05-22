@@ -46,7 +46,7 @@ export default function CardCountryContainer() {
           )}
         </React.Suspense>
       </section>
-      {totalPages > 0 && (
+      {!isLoading && (
         <div className="col-span-full laptop:mt-8">
           <div className="flex justify-center items-center mt-6  mb-6 gap-4">
             <button
