@@ -1,19 +1,19 @@
 'use client'
 import React, { useRef, useState } from 'react'
 
-import { ChevronDownIcon, SearchIcon } from 'lucide-react'
+import { SearchIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { useCountryStore } from '@/store/countryStore'
 import { usePathname } from 'next/navigation'
-import ContinentsFilter from './header/filters/continentsFilter'
-import { LanguagesFilter } from './header/languagesFilter'
+
+import ContinentsFilter from './filters/continentsFilter'
+import { LanguagesFilter } from './languagesFilter'
 
 export const Header = () => {
   const [filter, setFilter] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const countryFilter = useCountryStore((state) => state.setFilterCountry)
-  const languageFilter = useCountryStore((state) => state.setFilterLanguage)
   const pathname = usePathname()
   const shouldShowHeader = !pathname.startsWith('/details')
 
@@ -24,7 +24,7 @@ export const Header = () => {
   }
   return (
     <>
-      <header className="max-w-[80rem] flex-col laptop:w-full my-9 mx-auto h-fit flex items-center justify-center tablet:flex-col laptop:flex-row tablet:justify-start gap-4 flex-wrap laptop:px-6">
+      <header className="max-w-[80rem] flex-col laptop:w-full my-9 mx-auto h-fit flex items-center justify-center tablet:flex-row laptop:flex-row tablet:justify-start gap-4 flex-wrap laptop:px-6 tablet:px-6 desktop:flex-row">
         <div className="flex desktop:justify-start items-start flex-1 shrink-0 max-w-[6.75rem]">
           <Image
             priority
@@ -46,7 +46,7 @@ export const Header = () => {
                     if (e.key === 'Enter') handleFilterCountry()
                   }}
                   placeholder="Digite aqui"
-                  className="pr-10 relative  w-[272px] font-semibold  desktop:w-[420px] h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
+                  className="pr-10 relative  w-[17rem] font-semibold  desktop:w-[26.25rem] h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
                 />
                 <SearchIcon
                   className="absolute right-0 mr-4 text-white cursor-pointer"
@@ -59,7 +59,7 @@ export const Header = () => {
               />
             </div>
 
-            <div className="flex flex-wrap w-[280px] items-center justify-center tablet:flex-nowrap tablet:w-full tablet:justify-center gap-0 space-x-4 desktop:w-full  ">
+            <div className="flex flex-wrap w-[17.5rem] items-center justify-center tablet:flex-nowrap tablet:w-full tablet:justify-center gap-0 space-x-4 desktop:w-full  ">
               <ContinentsFilter
                 filter={filter}
                 setFilter={setFilter}

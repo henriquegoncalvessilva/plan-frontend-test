@@ -6,7 +6,7 @@ import { Exo } from 'next/font/google'
 import '@/styles/globals.scss'
 import 'react-toastify/dist/ReactToastify.css'
 import Footer from './components/footer/footer'
-import { Header } from './components/header'
+import { Header } from './components/header/header'
 
 const exo = Exo({ subsets: ['latin'], display: 'swap' })
 
