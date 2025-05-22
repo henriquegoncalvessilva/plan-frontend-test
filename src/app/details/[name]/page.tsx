@@ -4,14 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 type Props = {
-  params: {
-    name: string
-  }
+  params: Promise<{ name: string }>
 }
 
 export default async function Details({ params }: Props) {
-  const { name } = await params
-  const decodedName = decodeURIComponent(name)
+  const decodedName = decodeURIComponent((await params).name)
   const country: Country = await getCountryByName(decodedName)
   const itensDetail = [
     {
