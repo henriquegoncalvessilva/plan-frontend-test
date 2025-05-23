@@ -8,7 +8,7 @@ import { useCountryStore } from '@/store/countryStore'
 import { usePathname } from 'next/navigation'
 
 import ContinentsFilter from './filters/continentsFilter'
-import { LanguagesFilter } from './languagesFilter'
+import { LanguagesFilter } from './filters/languagesFilter'
 
 export const Header = () => {
   const [filter, setFilter] = useState('')
