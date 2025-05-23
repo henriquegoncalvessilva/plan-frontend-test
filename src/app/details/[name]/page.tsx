@@ -67,7 +67,7 @@ export default async function Details({ params }: Props) {
               />
             </div>
           </div>
-          <div className="flex flex-col laptop:flex-row items-center laptop:items-start px-5 justify-center h-full m-auto w-full">
+          <div className="flex flex-col laptop:flex-row items-center laptop:items-start px-5 justify-center h-full m-auto w-full desktop:flex-row desktop:m-0 desktop:items-start">
             <div className="relative w-[18.125rem] h-[13.75rem] shrink-0">
               <Image
                 fill
@@ -79,7 +79,7 @@ export default async function Details({ params }: Props) {
                 }
               />
             </div>
-            <div className="text-card-text-color p-5 w-full h-full flex flex-col justify-center items-center gap-5 flex-grow-0">
+            <div className="text-card-text-color p-5 w-full h-full flex flex-col justify-center items-center gap-5 flex-grow-0 desktop:text-center">
               {itensDetail.map((item, index) =>
                 item.label === null ? (
                   <h1 key={index} className="text-xx2l font-semibold">
@@ -101,11 +101,11 @@ export default async function Details({ params }: Props) {
                     'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%)',
                 }}></div>
               <div className="text-center z-50 w-full">
-                <Link href={`/`}>
-                  <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
+                <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
+                  <Link className="w-full block" href={`/`}>
                     Voltar
-                  </button>
-                </Link>
+                  </Link>
+                </button>
               </div>
             </div>
           </div>

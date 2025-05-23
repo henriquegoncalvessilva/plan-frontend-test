@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={exo.className}>
-      <body>
+    <html lang="pt-BR" className={`${exo.className}`}>
+      <body className="tablet:h-full tablet:flex tablet:flex-col laptop:h-full m-0 laptop:min-h-screen laptop:flex laptop:flex-col desktop:h-full desktop:min-h-screen desktop:flex desktop:flex-col">
         <Header />
         {children} <Footer />
       </body>

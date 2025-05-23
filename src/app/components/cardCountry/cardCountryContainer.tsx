@@ -29,20 +29,21 @@ export default function CardCountryContainer() {
 
   return (
     <>
-      <section className="flex flex-wrap gap-5 w-full rounded-[20px] desktop:justify-center tablet: justify-content: center; min-h-full tablet:justify-center tablet:px-5 flex-1 items-center justify-center">
-        <React.Suspense fallback={null}>
-          {isLoading ? (
+      <section className="flex flex-wrap gap-5 w-full rounded-[20px] desktop:justify-center tablet: justify-content: center tablet:justify-center tablet:px-5 flex-1 items-center justify-center min-h-[33.5rem]">
+        <React.Suspense
+          fallback={
             <p className="col-span-full text-center text-white text-2xl">
               Carregando...
             </p>
-          ) : currentPageCountries.length > 0 ? (
-            currentPageCountries.map((country, index) => (
-              <CardCountry key={index} country={country} />
-            ))
-          ) : (
+          }>
+          {!isLoading && currentPageCountries.length === 0 ? (
             <h2 className="col-span-full text-center text-white text-2xl">
               Nenhum país encontrado.
             </h2>
+          ) : (
+            currentPageCountries.map((country, index) => (
+              <CardCountry key={index} country={country} />
+            ))
           )}
         </React.Suspense>
       </section>

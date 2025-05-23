@@ -200,11 +200,19 @@ export const LanguagesFilter = ({
 
   return (
     <>
-      <div className="flex items-center justify-center relative w-fit">
+      <form
+        className="flex items-center justify-center relative w-fit"
+        role="search"
+        aria-label="Filtro de idiomas"
+        onSubmit={(e) => e.preventDefault()}>
+        <label htmlFor="language" className="sr-only">
+          Selecione um idioma
+        </label>
         <select
           name="language"
           id="language"
-          className="pr-10 font-semibold  w-[272px] relative h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
+          aria-label="Selecione um idioma"
+          className="pr-10 font-semibold w-[272px] relative h-[3.125rem] bg-transparent border-white border-solid border-4 rounded-2xl p-2 text-black placeholder:text-black"
           onChange={(e) => handleSelecteFilterCountry(e.target.value)}>
           <option value="" disabled defaultChecked>
             Selecione um idioma
@@ -216,8 +224,11 @@ export const LanguagesFilter = ({
             </option>
           ))}
         </select>
-        <ChevronDownIcon className="absolute text-white right-2" />
-      </div>
+        <ChevronDownIcon
+          className="absolute text-white right-2 pointer-events-none"
+          aria-hidden="true"
+        />
+      </form>
     </>
   )
 }

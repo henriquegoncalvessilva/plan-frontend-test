@@ -60,7 +60,11 @@ const CardCountryItem = React.memo(({ country }: CardCountryProps) => {
         }}>
         <div className="text-center z-50">
           <button className="text-white font-bold italic bg-primary w-[90%] tablet:w-[200px]  desktop:w-[16.875rem] h-12 rounded-[1.25rem] px-5">
-            <Link href={`/details/${country.name.common}`}>Ver mais</Link>
+            <Link
+              className="w-full block"
+              href={`/details/${country.name.common}`}>
+              Ver mais
+            </Link>
           </button>
         </div>
       </div>
