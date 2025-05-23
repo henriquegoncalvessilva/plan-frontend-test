@@ -11,7 +11,7 @@ import { Header } from './components/header/header'
 const exo = Exo({ subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
-  title: 'Plan',
+  title: 'PlanTest - Henrique Gonçalves',
   description: 'Template for a Next.js app with TypeScript and Sass',
 }
 
