@@ -127,12 +127,71 @@ Este projeto deve ser utilizado como base para o desenvolvimento do seu teste. A
 
 ## ⭐ Instruções
 
-​
+Siga os passos abaixo:
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/henriquegoncalvessilva/plan-frontend-test.git
+
+2. Clone o repositório:
+
+   ```bash
+   cd plan-frontend-test
+
+3. Instale as dependências
+
+   ```bash
+   npm install
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+5. O projeto estará disponível em http://localhost:3000
 
 ## ⭐ Breve explicação
 
+### 💨 Utilização do Tailwind CSS
+
+Optei pelo **Tailwind CSS** por diversos motivos:
+
+- Agilidade no desenvolvimento;
+- Facilidade na criação de layouts responsivos;
+- Flexibilidade e reutilização de estilos, promovendo padronização e redução de código repetido.
+
+### 🧠 Lazy Loading com `next/dynamic`
+
+Ao invés do `React.lazy`, utilizei o `dynamic` do **Next.js**, pois ele oferece otimizações nativas, como preload automático e melhor suporte à renderização do lado do servidor (SSR), o que melhora o desempenho da aplicação de forma geral.
+
+### 🤖 Uso de IA com GitHub Copilot
+
+Durante o desenvolvimento, utilizei o **GitHub Copilot** como apoio. A ferramenta contribuiu significativamente na agilidade da codificação, ajudando tanto na performance quanto na legibilidade e organização do código.
+
+### 🧩 Zustand para Gerenciamento de Estado
+
+Implementei o **Zustand** para o gerenciamento de estado global da aplicação. A escolha foi baseada nos seguintes benefícios:
+
+- Evita o "Prop Drilling" ao permitir o compartilhamento de dados entre componentes de forma direta;
+- Elimina a necessidade de `Provider`, como ocorre com o Context API;
+- Torna a implementação mais simples e objetiva;
+- Permite controlar funcionalidades como paginação e requisições (fetchs) de forma eficiente e centralizada.
+
+---
+
+### 💡 Melhorias de Experiência do Usuário (UX)
+
+Alguns pontos da aplicação foram ajustados em relação ao design proposto no Figma, seja por limitações técnicas ou oportunidades de melhoria visual e funcional.
+
+Um exemplo prático foi a **paginação**. A API retorna dados com até 32 páginas, o que tornaria a navegação com 32 bolinhas (_dots_) visualmente poluída e pouco funcional. Por isso, optei por uma solução mais limpa e objetiva: exibir a **página atual / total de páginas**, oferecendo melhor clareza para o usuário.
+
+---
+
+### 🗣️ Considerações
+
+Como desenvolvedores, é fundamental sabermos dialogar com o time de produto sobre ajustes que tragam ganhos de usabilidade e mantenham a entrega com qualidade. Pequenas decisões, como a melhoria na paginação, demonstram a importância de pensar a experiência do usuário como um todo, além de apenas seguir o layout à risca.
 ​
 
 ## ⭐ Link do deploy (se houver)
+
+Link do deploy - https://plan-frontend-test-bice.vercel.app/
 
 ​
