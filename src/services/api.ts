@@ -15,7 +15,7 @@ export async function getData() {
 }
 export async function getCountryByName(name: string) {
   const res = await fetch(
-    `https://restcountries.com/v3.1/all?fields=${name},por,flags,continents,region,translations,capital,languages,name,population`,
+    `https://restcountries.com/v3.1/name/${name}?fields=name,por,flags,continents,region,translations,capital,languages,name,population`,
   )
 
   if (!res.ok) {
